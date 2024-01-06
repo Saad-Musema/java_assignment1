@@ -20,12 +20,12 @@ public class DocumentHelper {
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
-                // The loop will continue, prompting the user for input again
             }
         }
 
         return input;
     }
+
 
 
     public String getDateInput(String prompt) {
@@ -34,10 +34,29 @@ public class DocumentHelper {
         return prompt;
     }
 
-    public String getPhoneNUmberInput(String prompt){
+    private static final String PHONE_NUMBER_REGEX = "(09|07)\\d{8}";
+
+    //Expression to cross check if phone number is valid or not
 
 
-        return prompt;
+    public String getPhoneNumberInput(String prompt) {
+        String phoneNumber = null;
+    
+        while (phoneNumber == null || !phoneNumber.matches(PHONE_NUMBER_REGEX)) {
+            try {
+                System.out.print(prompt);
+                phoneNumber = scanner.nextLine();
+    
+                if (phoneNumber == null || !phoneNumber.matches(PHONE_NUMBER_REGEX)) {
+                    throw new IllegalStateException("Invalid phone number format. Please enter a valid phone number.");
+                }
+            } catch (IllegalStateException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    
+        return phoneNumber;
     }
+    
 
 }

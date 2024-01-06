@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class DeathCertificate extends Document {
     private String causeOfDeath;
     private String dateOfDeath;
@@ -29,7 +34,29 @@ public class DeathCertificate extends Document {
         super.add();
         setCauseOfDeath(helper.getNameInput("Enter cause of Death: "));
         setDateOfDeath(helper.getDateInput("Enter date of Death"));
+        System.out.println("Added Successfully!");
     }
+
+public void displayDetailsGUI() {
+    JFrame frame = new JFrame("Death Certificate Details");
+    frame.setSize(400, 300);
+    frame.setLocationRelativeTo(null);
+
+    JPanel panel = new JPanel();
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    
+        panel.add(new JLabel("Death Certificate Details:"));
+        panel.add(new JLabel("Document Number: " + super.getDocumentNumber()));
+        panel.add(new JLabel("Name: " + super.getOwnerName()));
+        panel.add(new JLabel("Issue Date: " + super.getIssueDate()));
+        panel.add(new JLabel("Cause of Death: " + getCauseOfDeath()));
+        panel.add(new JLabel("Date of Death: " + getDateOfDeath()));
+
+    frame.add(panel);
+
+    frame.setVisible(true);
+
+}
 
     public void displayDetails() {
         System.out.println("Death Certificate Details:");

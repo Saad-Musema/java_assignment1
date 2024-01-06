@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class BirthCertificate extends Document {
     private String fatherName;
     private String motherName;
@@ -35,17 +40,27 @@ public class BirthCertificate extends Document {
         setFatherName(helper.getNameInput("Enter your father's name: "));
         setMotherName(helper.getNameInput("Enter your mother's name: "));
         setDOB(helper.getDateInput("Enter your date of birth (e.g., YYYY-MM-DD): "));
+        System.out.println("Added Successfully!");
     }
 
+    public void displayDetailsGUI() {
+        JFrame frame = new JFrame("Birth Certificate Details");
+        frame.setSize(400, 300);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    public void displayDetails() {
-        System.out.println("Birth Certificate Details:");
-        System.out.println("Document Number: " + super.getDocumentNumber());
-        System.out.println("Owner Name: " + super.getOwnerName());
-        System.out.println("Issue Date: " + super.getIssueDate());
-        System.out.println("Father's Name: " + getFatherName());
-        System.out.println("Mother's Name: " + getMotherName());
-        System.out.println("Date of Birth: " + getDOB());
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        panel.add(new JLabel("Document Number: " + super.getDocumentNumber()));
+        panel.add(new JLabel("Owner Name: " + super.getOwnerName()));
+        panel.add(new JLabel("Issue Date: " + super.getIssueDate()));
+        panel.add(new JLabel("Father's Name: " + getFatherName()));
+        panel.add(new JLabel("Mother's Name: " + getMotherName()));
+        panel.add(new JLabel("Date of Birth: " + getDOB()));
+
+        frame.add(panel);
+        frame.setVisible(true);
     }
 
     // The edit method you mentioned

@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 
 public class GovernmentId extends Document {
@@ -66,19 +71,31 @@ public class GovernmentId extends Document {
         super.add();
         setPlaceOfBirth(helper.getNameInput("Enter your place of birth: "));
         setAddress(helper.getNameInput("Enter your address: "));
+        setPhoneNumber(helper.getPhoneNumberInput("Enter your phone number: "));
+        System.out.println("Added Successfully!");
     }
 
-    public void displayDetails() {
-        System.out.println("Government ID Details:");
-        System.out.println("Document Number: " + getDocumentNumber());
-        System.out.println("Owner Name: " + getOwnerName());
-        System.out.println("Issue Date: " + getIssueDate());
-        System.out.println("Date of Birth: " + getDOB());
-        System.out.println("Place of Birth: " + getPlaceOfBirth());
-        System.out.println("Expiry Date: " + getExpiryDate());
-        System.out.println("Address: " + getAddress());
-        System.out.println("Phone Number: " + getPhoneNumber());
-    }
+   public void displayDetailsGUI() {
+    JFrame frame = new JFrame("Government ID Details");
+    frame.setSize(400, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    JPanel panel = new JPanel();
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+    panel.add(new JLabel("Document Number: " + getDocumentNumber()));
+    panel.add(new JLabel("Owner Name: " + getOwnerName()));
+    panel.add(new JLabel("Issue Date: " + getIssueDate()));
+    panel.add(new JLabel("Date of Birth: " + getDOB()));
+    panel.add(new JLabel("Place of Birth: " + getPlaceOfBirth()));
+    panel.add(new JLabel("Expiry Date: " + getExpiryDate()));
+    panel.add(new JLabel("Address: " + getAddress()));
+    panel.add(new JLabel("Phone Number: " + getPhoneNumber()));
+
+    frame.add(panel);
+    frame.setVisible(true);
+}
+
     
     public void edit() {
         System.out.println("Greetings! What do you want to edit?");
