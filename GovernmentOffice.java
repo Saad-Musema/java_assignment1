@@ -38,24 +38,30 @@ public class GovernmentOffice {
                         if (operationChoice == 1) {
                             governmentId.add();
                             governmentIds.add(governmentId);
-                            governmentId.displayDetails();
+                            governmentId.displayDetailsGUI();
                         } else if (operationChoice == 2) {
                             System.out.println("Please input document ID you want to edit: ");
                             String documentId = input.next();
                             boolean found = false;
-
-                            for (GovernmentId govId : governmentIds) {
+                            try{
+                                for (GovernmentId govId : governmentIds) {
                                 if (govId.getDocumentNumber().equals(documentId)) {
                                     found = true;
                                     govId.edit();
-                                    govId.displayDetails();
+
+                                    govId.displayDetailsGUI();
                                     break;
+                                    }
+
                                 }
-                            }
 
                             if (!found) {
                                 System.out.println("Document with ID " + documentId + " not found!");
+                                        }
                             }
+                            catch (IndexOutOfBoundsException e) {
+                                System.out.println("Index out of bounds: " + e.getMessage());}
+
                         } else {
                             System.out.println("Invalid operation choice. Please enter 1 for Add or 2 for Edit.");
                         }
@@ -77,17 +83,17 @@ public class GovernmentOffice {
                         if (operationChoice == 1) {
                             birthCertificate.add();
                             birthCertificates.add(birthCertificate);
-                            birthCertificate.displayDetails();
+                            birthCertificate.displayDetailsGUI();
                         } else if (operationChoice == 2) {
                             System.out.println("Please input document ID you want to edit: ");
                             String documentId = input.next();
                             boolean found = false;
-
-                            for (BirthCertificate birthCert : birthCertificates) {
+                            try{
+                                for (BirthCertificate birthCert : birthCertificates) {
                                 if (birthCert.getDocumentNumber().equals(documentId)) {
                                     found = true;
                                     birthCert.edit();
-                                    birthCert.displayDetails();
+                                    birthCert.displayDetailsGUI();
                                     break;
                                 }
                             }
@@ -95,6 +101,11 @@ public class GovernmentOffice {
                             if (!found) {
                                 System.out.println("Document with ID " + documentId + " not found!");
                             }
+                            }
+                            catch (IndexOutOfBoundsException e) {
+                                System.out.println("Index out of bounds: " + e.getMessage());}
+
+                            
                         } else {
                             System.out.println("Invalid operation choice. Please enter 1 for Add or 2 for Edit.");
                         }
@@ -116,17 +127,17 @@ public class GovernmentOffice {
                         if (operationChoice == 1) {
                             deathCertificate.add();
                             deathCertificates.add(deathCertificate);
-                            deathCertificate.displayDetails();
+                            deathCertificate.displayDetailsGUI();
                         } else if (operationChoice == 2) {
                             System.out.println("Please input document ID you want to edit: ");
                             String documentId = input.next();
                             boolean found = false;
-
-                            for (DeathCertificate deathCert : deathCertificates) {
+                            try{
+                                for (DeathCertificate deathCert : deathCertificates) {
                                 if (deathCert.getDocumentNumber().equals(documentId)) {
                                     found = true;
                                     deathCert.edit();
-                                    deathCert.displayDetails();
+                                    deathCert.displayDetailsGUI();
                                     break;
                                 }
                             }
@@ -134,6 +145,9 @@ public class GovernmentOffice {
                             if (!found) {
                                 System.out.println("Document with ID " + documentId + " not found!");
                             }
+                            }catch (IndexOutOfBoundsException e) {
+                                System.out.println("Index out of bounds: " + e.getMessage());}
+                            
                         } else {
                             System.out.println("Invalid operation choice. Please enter 1 for Add or 2 for Edit.");
                         }

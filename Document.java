@@ -43,7 +43,6 @@ public abstract class Document {
         this.issueDate = issueDate;
     }
 
-    // Polymorphic methods
     public void add(){
         setDocumentNumber(helper.getNameInput("Enter Document ID: "));
         setOwnerName(helper.getNameInput("Enter your full name: "));
