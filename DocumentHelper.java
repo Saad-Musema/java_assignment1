@@ -30,15 +30,14 @@ public class DocumentHelper {
 
     public String getDateInput(String prompt) {
 
-        
+
         return prompt;
     }
 
-    // Other methods...
+    public String getPhoneNUmberInput(String prompt){
 
-    // public static void main(String[] args) {
-    //     DocumentHelper helper = new DocumentHelper();
-    //     String name = helper.getNameInput("Please enter the name: ");
-    //     System.out.println("Name entered: " + name);
-    // }
+
+        return prompt;
+    }
+
 }

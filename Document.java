@@ -45,7 +45,7 @@ public abstract class Document {
 
     // Polymorphic methods
     public void add(){
-        setDocumentNumber("1234");
+        setDocumentNumber(helper.getNameInput("Enter Document ID: "));
         setOwnerName(helper.getNameInput("Enter your full name: "));
         setIssueDate("2023");
     }
