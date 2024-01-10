@@ -16,15 +16,6 @@ public class GovernmentId extends Document {
 
     Scanner input = new Scanner(System.in);
 
-    // public GovernmentId(String DOB, String expiryDate, String phoneNumber) {
-
-    //     super();
-    //     this.DOB = DOB;
-    //     setPlaceOfBirth(helper.getNameInput("Enter your place of birth: "));
-    //     this.expiryDate = expiryDate;
-    //     setAddress(helper.getNameInput("Enter your address: "));
-    //     this.phoneNumber = phoneNumber;
-    // }
     // Getters and Setters for new attributes
 
     public String getDOB() {
@@ -78,7 +69,7 @@ public class GovernmentId extends Document {
    public void displayDetailsGUI() {
     JFrame frame = new JFrame("Government ID Details");
     frame.setSize(400, 300);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
